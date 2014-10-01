@@ -72,7 +72,7 @@ class wordpress::app (
 
   ## Download and extract
   exec { 'Download wordpress':
-    command => "wget ${install_url}/${install_file_name}",
+    command => "wget --no-check-certificate ${install_url}/${install_file_name}",
     creates => "${install_dir}/${install_file_name}",
     require => File[$install_dir],
     user    => $wp_owner,
